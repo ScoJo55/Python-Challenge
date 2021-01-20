@@ -3,14 +3,14 @@ import os
 import csv
 
 # Path of CSV
-csvpath = os.path.join('..', "Resources", "bankcsv.csv")
+csvpath = os.path.join('..', "Python-Challenge", "Pybank", "Resources", "bankcsv.csv")
 
 
 #Open & Read CSV File
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
-    row = next(csvreader)
+
 
  #Variables
 total_months = 0
@@ -26,4 +26,13 @@ previous_row = int(row[1])
 total_months += 1
 net_amount += int(row[1])
 increase = int(row[1])
-increase_month = row[0]   
+increase_month = row[0] 
+
+for row in csvreader:
+    Months.append(row[0])
+    pl.append(row[1])
+    total_months = len(months)
+    NetPL = NetPL + int(row[1])
+
+print(f"Total Months: {total_months}")
+print(f"Total: ${NetPL}")
